@@ -1,5 +1,6 @@
 import 'package:alnoormanment/shared/responsive/responsive.dart';
 import 'package:alnoormanment/shared/thems.dart';
+import 'package:alnoormanment/shared/widget/Logo.widget.dart';
 import 'package:alnoormanment/shared/words.dart';
 import 'package:flutter/material.dart';
 
@@ -31,13 +32,7 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     flex: 18,
                     child: ListView(children: [
-                      Container(
-                        height: 90,
-                        margin:
-                            EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                        width: double.infinity,
-                        child: Image(image: AssetImage("images/logo.png")),
-                      ),
+                      Logo_widget(),
                       Container(
                         margin: EdgeInsets.all(10),
                         height: 60,

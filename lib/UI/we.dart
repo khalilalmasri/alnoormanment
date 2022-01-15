@@ -1,5 +1,8 @@
 import 'package:alnoormanment/shared/responsive/responsive.dart';
 import 'package:alnoormanment/shared/thems.dart';
+import 'package:alnoormanment/shared/widget/Button.widget.dart';
+import 'package:alnoormanment/shared/widget/Logo.widget.dart';
+import 'package:alnoormanment/shared/widget/TextFormField_widget.dart';
 import 'package:alnoormanment/shared/words.dart';
 import 'package:flutter/material.dart';
 
@@ -25,29 +28,21 @@ class _WeState extends State<We> {
           body: Container(
             width: double.infinity,
             decoration: BoxDecoration(color: ColorPlatform.firstcolor),
+            child: Row(
+                children: [
+                  Expanded(
+                      flex: Responsive.isMobile(context) ? 0 : 6,
+                      child: Container()),
+                  Expanded(
+                    flex: 18,
             child: ListView(children: [
-              Container(
-                height: 90,
-                margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                width: double.infinity,
-                child: Image(image: AssetImage("images/logo.png")),
-              ),
+              Logo_widget(),
               Container(
                 margin: EdgeInsets.all(10),
                 child: Row(
                   children: [
                     Expanded(
-                      child: TextFormField(
-                          keyboardType: TextInputType.phone,
-                          cursorColor: ColorPlatform.golden,
-                          style: TextStyle(
-                              color: ColorPlatform.golden,
-                              fontWeight: FontWeight.bold),
-                          onChanged: (value) {},
-                          textAlign: TextAlign.end,
-                          decoration: DecoPlatform.decofild.copyWith(
-                              labelText: StringPlatform.FirstNumber,
-                              labelStyle: StylePlatform.hinttext)),
+                      child: Text_Form_Field(Field_Name: StringPlatform.FirstNumber, obscure_Text: false, Input_type:TextInputType.phone)
                     ),
                     /*Container(
                       width: 120,
@@ -67,17 +62,7 @@ class _WeState extends State<We> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: TextFormField(
-                          keyboardType: TextInputType.phone,
-                          cursorColor: ColorPlatform.golden,
-                          style: TextStyle(
-                              color: ColorPlatform.golden,
-                              fontWeight: FontWeight.bold),
-                          onChanged: (value) {},
-                          textAlign: TextAlign.end,
-                          decoration: DecoPlatform.decofild.copyWith(
-                              labelText: StringPlatform.SecondNumber,
-                              labelStyle: StylePlatform.hinttext)),
+                      child: Text_Form_Field(Field_Name: StringPlatform.SecondNumber, obscure_Text: false, Input_type:TextInputType.phone)
                     ),
                   ],
                 ),
@@ -87,17 +72,7 @@ class _WeState extends State<We> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          cursorColor: ColorPlatform.golden,
-                          style: TextStyle(
-                              color: ColorPlatform.golden,
-                              fontWeight: FontWeight.bold),
-                          onChanged: (value) {},
-                          textAlign: TextAlign.end,
-                          decoration: DecoPlatform.decofild.copyWith(
-                              labelText: StringPlatform.web,
-                              labelStyle: StylePlatform.hinttext)),
+                      child: Text_Form_Field(Field_Name: StringPlatform.web, obscure_Text:false, Input_type:TextInputType.text)
                     ),
                   ],
                 ),
@@ -107,41 +82,21 @@ class _WeState extends State<We> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: TextFormField(
-                          cursorColor: ColorPlatform.golden,
-                          style: TextStyle(
-                              color: ColorPlatform.golden,
-                              fontWeight: FontWeight.bold),
-                          onChanged: (value) {},
-                          textAlign: TextAlign.end,
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: DecoPlatform.decofild.copyWith(
-                              labelText: StringPlatform.FaceBook,
-                              labelStyle: StylePlatform.hinttext)),
+                      child: Text_Form_Field(Field_Name: StringPlatform.FaceBook, obscure_Text: false, Input_type: TextInputType.text)
                     ),
                   ],
                 ),
               ),
-              Container(
-                height: 40,
-                alignment: Alignment.centerRight,
-                margin: EdgeInsets.all(10),
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      primary: ColorPlatform.golden,
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pushNamed("HomePage");
-                    },
-                    child: const Text(
-                      StringPlatform.add,
-                      style: StylePlatform.hinttext,
-                    )),
-              ),
+              Button_widget(Button_Name: StringPlatform.add, Push_named: "")
             ]),
+ ),
+                  Expanded(
+                      flex: Responsive.isMobile(context) ? 0 : 6,
+                      child: Container()),
+                ],
+              ),
           ),
+          
         ));
   }
 }

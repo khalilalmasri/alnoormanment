@@ -217,7 +217,7 @@ class _CalculaterweState extends State<Calculaterwe> {
                         alignment: Alignment.center,
                         decoration: DecoPlatform.decosaleandbuy,
                         padding: EdgeInsets.all(3),
-                        height: 35,
+                        height: 40,
                         margin: const EdgeInsets.symmetric(vertical: 3),
                         child: Text(
                           " $a",
@@ -237,7 +237,7 @@ class _CalculaterweState extends State<Calculaterwe> {
                         alignment: Alignment.center,
                         decoration: DecoPlatform.decosaleandbuy,
                         padding: EdgeInsets.all(3),
-                        height: 35,
+                        height: 40,
                         margin: const EdgeInsets.symmetric(vertical: 3),
                         child: Text(widget.name_price_result,
                             style: StylePlatform.stylesaleandbuy),

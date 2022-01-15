@@ -1,5 +1,7 @@
 import 'package:alnoormanment/shared/responsive/responsive.dart';
 import 'package:alnoormanment/shared/thems.dart';
+import 'package:alnoormanment/shared/widget/Button.widget.dart';
+import 'package:alnoormanment/shared/widget/Logo.widget.dart';
 import 'package:alnoormanment/shared/widget/TextFormField_widget.dart';
 import 'package:alnoormanment/shared/words.dart';
 import 'package:flutter/material.dart';
@@ -25,34 +27,34 @@ class _Add_CurrencyState extends State<Add_Currency> {
           body: Container(
             width: double.infinity,
             decoration: BoxDecoration(color: ColorPlatform.firstcolor),
-            child: ListView(children: [
-              Container(
-                height: 90,
-                margin: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                width: double.infinity,
-                child: Image(image: AssetImage("images/logo.png")),
-              ),
-              Text_Form_Field(Field_Name: StringPlatform.Currencyname),
-              Text_Form_Field(Field_Name: StringPlatform.Currincysymbol),
-              Container(
-                height: 40,
-                alignment: Alignment.centerRight,
-                margin: EdgeInsets.all(10),
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5)),
-                      primary: ColorPlatform.golden,
+            child: Row(
+              children: [
+                Expanded(
+                    flex: Responsive.isMobile(context) ? 0 : 6,
+                    child: Container()),
+                Expanded(
+                  flex: 18,
+                  child: ListView(children: [
+                    Logo_widget(),
+                    Text_Form_Field(
+                      Field_Name: StringPlatform.Currencyname,
+                      obscure_Text: false,
+                      Input_type: TextInputType.text,
                     ),
-                    onPressed: () {
-                      Navigator.of(context).pushNamed("HomePage");
-                    },
-                    child: const Text(
-                      StringPlatform.add,
-                      style: StylePlatform.hinttext,
-                    )),
-              ),
-            ]),
+                    Text_Form_Field(
+                      Field_Name: StringPlatform.Currincysymbol,
+                      obscure_Text: false,
+                      Input_type: TextInputType.text,
+                    ),
+                    Button_widget(
+                        Button_Name: StringPlatform.add, Push_named: "")
+                  ]),
+                ),
+                Expanded(
+                    flex: Responsive.isMobile(context) ? 0 : 6,
+                    child: Container()),
+              ],
+            ),
           ),
         ));
   }

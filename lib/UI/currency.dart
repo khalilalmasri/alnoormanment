@@ -1,5 +1,6 @@
 import 'package:alnoormanment/shared/responsive/responsive.dart';
 import 'package:alnoormanment/shared/thems.dart';
+import 'package:alnoormanment/shared/widget/Button.widget.dart';
 import 'package:alnoormanment/shared/widget/price_currency_widget.dart';
 import 'package:alnoormanment/shared/words.dart';
 import 'package:flutter/material.dart';
@@ -57,24 +58,7 @@ class _CurrencyState extends State<Currency> {
                           name_price_sale: StringPlatform.turky,
                           name_code_sale: "",
                           name_code_buy: ""),
-                      Container(
-                        height: 40,
-                        alignment: Alignment.centerRight,
-                        margin: EdgeInsets.all(10),
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5)),
-                              primary: ColorPlatform.golden,
-                            ),
-                            onPressed: () {
-                              Navigator.of(context).pushNamed("ManagCurrency");
-                            },
-                            child: const Text(
-                              StringPlatform.manag,
-                              style: StylePlatform.hinttext,
-                            )),
-                      ),
+                      Button_widget(Button_Name: StringPlatform.manag, Push_named: "ManagCurrency")
                     ]),
                   ),
                   Expanded(

@@ -1,4 +1,5 @@
 import 'package:alnoormanment/main.dart';
+import 'package:alnoormanment/shared/responsive/responsive.dart';
 import 'package:alnoormanment/shared/thems.dart';
 import 'package:alnoormanment/shared/widget/Add_Currency_widget.dart';
 import 'package:alnoormanment/shared/words.dart';
@@ -32,18 +33,33 @@ class _Manag_CurrencyState extends State<Manag_Currency> {
               backgroundColor: ColorPlatform.golden,
             ),
             body: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(color: ColorPlatform.firstcolor),
-                child: ListView(children: [
-                  Add_Currency_Widget(
-                      Currency_name_E: "USD",
-                      Currency_name_A: StringPlatform.dollar),
-                  Add_Currency_Widget(
-                      Currency_name_E: "TRP",
-                      Currency_name_A: StringPlatform.turky),
-                  Add_Currency_Widget(
-                      Currency_name_E: "SYP",
-                      Currency_name_A: StringPlatform.syrian)
-                ]))));
+              width: double.infinity,
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(color: ColorPlatform.firstcolor),
+              child: Row(
+                children: [
+                  Expanded(
+                      flex: Responsive.isMobile(context) ? 0 : 6,
+                      child: Container()),
+                  Expanded(
+                    flex: 18,
+                    child: ListView(children: [
+                      Add_Currency_Widget(
+                          Currency_name_E: "USD",
+                          Currency_name_A: StringPlatform.dollar),
+                      Add_Currency_Widget(
+                          Currency_name_E: "TRP",
+                          Currency_name_A: StringPlatform.turky),
+                      Add_Currency_Widget(
+                          Currency_name_E: "SYP",
+                          Currency_name_A: StringPlatform.syrian)
+                    ]),
+                  ),
+                  Expanded(
+                      flex: Responsive.isMobile(context) ? 0 : 6,
+                      child: Container()),
+                ],
+              ),
+            )));
   }
 }

@@ -33,8 +33,16 @@ class _UsersmanagerState extends State<Usersmanager> {
             backgroundColor: ColorPlatform.golden,
           ),
           body: Container(
+            
             width: double.infinity,
             decoration: BoxDecoration(color: ColorPlatform.firstcolor),
+            child: Row(
+                children: [
+                  Expanded(
+                      flex: Responsive.isMobile(context) ? 0 : 6,
+                      child: Container()),
+                  Expanded(
+                    flex: 18,
             child: ListView(children: [
               Container(
                 height: 90,
@@ -47,6 +55,12 @@ class _UsersmanagerState extends State<Usersmanager> {
                 User_Image: "",
               ),
             ]),
+              ),
+                  Expanded(
+                      flex: Responsive.isMobile(context) ? 0 : 6,
+                      child: Container()),
+                ],
+              ),
           ),
         ));
   }
