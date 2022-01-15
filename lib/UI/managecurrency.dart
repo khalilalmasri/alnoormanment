@@ -2,6 +2,7 @@ import 'package:alnoormanment/main.dart';
 import 'package:alnoormanment/shared/responsive/responsive.dart';
 import 'package:alnoormanment/shared/thems.dart';
 import 'package:alnoormanment/shared/widget/Add_Currency_widget.dart';
+import 'package:alnoormanment/shared/widget/Floating_Action_B.widget.dart';
 import 'package:alnoormanment/shared/words.dart';
 import 'package:flutter/material.dart';
 
@@ -22,16 +23,7 @@ class _Manag_CurrencyState extends State<Manag_Currency> {
               backgroundColor: ColorPlatform.firstcolor,
               title: const Text(StringPlatform.currencymanag),
             ),
-            floatingActionButton: FloatingActionButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed("Addcurrency");
-              },
-              child: Icon(
-                Icons.add,
-                color: ColorPlatform.colorgrey,
-              ),
-              backgroundColor: ColorPlatform.golden,
-            ),
+           floatingActionButton: Floating_Action_B(Path: "Addcurrency"),
             body: Container(
               width: double.infinity,
               padding: EdgeInsets.all(15),

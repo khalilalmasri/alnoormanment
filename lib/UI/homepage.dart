@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                           title: Text(StringPlatform.advertismanage),
                           leading: Icon(Icons.monitor),
                           onTap: () {
-                            Navigator.of(context).pushNamed("signup");
+                            Navigator.of(context).pushNamed("Advmanager");
                           },
                         ),
                       ),

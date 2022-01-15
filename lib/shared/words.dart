@@ -34,4 +34,7 @@ class StringPlatform {
   static const String manag = "إدارة";
   static const String Currencyname = "أسم العملة";
   static const String Currincysymbol = "رمز العملة";
+  static const String from = "من تاريخ";
+  static const String to = " إلى تاريخ";
+  static const String discription = "توصيف";
 }

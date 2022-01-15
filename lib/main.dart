@@ -6,6 +6,8 @@ import 'package:alnoormanment/UI/Calculater.dart';
 import 'package:alnoormanment/UI/adduser.dart';
 import 'package:alnoormanment/UI/homepage.dart';
 import 'package:flutter/material.dart';
+import 'UI/Adv_Add.dart';
+import 'UI/Advertizmanager.dart';
 import 'UI/managecurrency.dart';
 import 'UI/homepage.dart';
 import 'UI/currency.dart';
@@ -36,6 +38,8 @@ class MyApp extends StatelessWidget {
           "We": (context) => We(),
           "ManagCurrency": (context) => Manag_Currency(),
           "Addcurrency":(context)=> Add_Currency(),
+          "Advmanager":(context)=> Advsmanager(),
+          "AddAdv":(context)=> Add_Adv(),
         });
   }
 }
