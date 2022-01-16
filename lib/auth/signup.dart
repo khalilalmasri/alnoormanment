@@ -145,7 +145,7 @@ class _signupState extends State<signup> {
                     primary: Color(0xffE6B31E),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushReplacementNamed("HomePage");
+                    Navigator.of(context).pushReplacementNamed("Setting");
                   },
                   child: const Text(
                     "تسجيل الدخول",

@@ -13,6 +13,8 @@ class Currency extends StatefulWidget {
 }
 
 class _CurrencyState extends State<Currency> {
+ 
+  
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -58,7 +60,9 @@ class _CurrencyState extends State<Currency> {
                           name_price_sale: StringPlatform.turky,
                           name_code_sale: "",
                           name_code_buy: ""),
-                      Button_widget(Button_Name: StringPlatform.manag, Push_named: "ManagCurrency")
+                      Button_widget(
+                          Button_Name: StringPlatform.manag,
+                          Push_named: "ManagCurrency")
                     ]),
                   ),
                   Expanded(

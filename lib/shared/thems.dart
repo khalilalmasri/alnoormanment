@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class ColorPlatform {
   static const Color ColorButton = Color(0xff413714);
   static const Color firstcolor = Color(0xff181712);
+  static const Color secondcolor = Color(0xff8a7a25);
+  static const Color thirddcolor = Color(0xffe2b746);
   static const Color golden = Color(0xffE6B31E);
   static const Color colorwhite = Color(0xffF0ECE3);
   static const Color colorgrey = Color(0xff607D8b);

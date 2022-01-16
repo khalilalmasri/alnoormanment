@@ -13,6 +13,7 @@ class Calculater extends StatefulWidget {
 }
 
 class _CalculaterState extends State<Calculater> {
+  int selectindex = 2;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -22,6 +23,7 @@ class _CalculaterState extends State<Calculater> {
               backgroundColor: ColorPlatform.firstcolor,
               title: const Text(StringPlatform.calculator),
             ),
+            
             body: Container(
               width: double.infinity,
               padding: EdgeInsets.symmetric(vertical: 50, horizontal: 15),

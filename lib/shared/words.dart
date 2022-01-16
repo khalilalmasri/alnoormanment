@@ -37,4 +37,7 @@ class StringPlatform {
   static const String from = "من تاريخ";
   static const String to = " إلى تاريخ";
   static const String discription = "توصيف";
+  static const String currency = "العملات";
+  static const String setting = "الإعدادات";
+ 
 }

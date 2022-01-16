@@ -4,14 +4,14 @@ import 'package:alnoormanment/shared/widget/Logo.widget.dart';
 import 'package:alnoormanment/shared/words.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+class Setting extends StatefulWidget {
+  Setting({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _SettingState createState() => _SettingState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
     return Directionality(

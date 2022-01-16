@@ -4,13 +4,14 @@ import 'package:alnoormanment/auth/login.dart';
 import 'package:alnoormanment/auth/signup.dart';
 import 'package:alnoormanment/UI/Calculater.dart';
 import 'package:alnoormanment/UI/adduser.dart';
-import 'package:alnoormanment/UI/homepage.dart';
+import 'package:alnoormanment/UI/setting.dart';
 import 'package:flutter/material.dart';
 import 'UI/Adv_Add.dart';
 import 'UI/Advertizmanager.dart';
-import 'UI/managecurrency.dart';
-import 'UI/homepage.dart';
 import 'UI/currency.dart';
+import 'UI/managecurrency.dart';
+import 'UI/setting.dart';
+import 'UI/Bottom_Bar.dart';
 import 'UI/usersmanager.dart';
 
 void main() {
@@ -30,8 +31,9 @@ class MyApp extends StatelessWidget {
         routes: {
           "login": (context) => Logein(),
           "signup": (context) => signup(),
-          "HomePage": (context) => HomePage(),
+          "Setting": (context) => Setting(),
           "Currency": (context) => Currency(),
+          "BottomBar": (context)=> Bottom_Bar(),
           "Usersmanager": (context) => Usersmanager(),
           "AddUser": (context) => AddUser(),
           "Calculator": (context) => Calculater(),

@@ -74,7 +74,7 @@ class _LogeinState extends State<Logein> {
                               width: double.infinity,
                               child: Button_widget(
                                   Button_Name: StringPlatform.login,
-                                  Push_named: "HomePage")),
+                                  Push_named: "BottomBar")),
                         ),
                         Expanded(flex: 2, child: Container()),
                       ],

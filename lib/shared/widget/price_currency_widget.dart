@@ -1,5 +1,6 @@
 import 'package:alnoormanment/shared/words.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../thems.dart';
 
@@ -51,8 +52,8 @@ class _PriceCurrencyState extends State<PriceCurrency> {
                     gradient: LinearGradient(
                         begin: Alignment.bottomRight,
                         colors: [
-                          ColorPlatform.colorgrey,
-                          ColorPlatform.golden
+                          ColorPlatform.thirddcolor,
+                          ColorPlatform.secondcolor
                         ]),
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(50),
@@ -128,8 +129,7 @@ class _PriceCurrencyState extends State<PriceCurrency> {
                         padding: EdgeInsets.all(3),
                         height: 50,
                         margin: const EdgeInsets.symmetric(vertical: 3),
-                        child: Text(
-                          "999.99",
+                        child: TextFormField(
                           style: StylePlatform.stylesaleandbuy,
                         ),
                       ),
@@ -148,8 +148,8 @@ class _PriceCurrencyState extends State<PriceCurrency> {
                         padding: EdgeInsets.all(3),
                         height: 50,
                         margin: const EdgeInsets.symmetric(vertical: 3),
-                        child: Text("999.99",
-                            style: StylePlatform.stylesaleandbuy),
+                        child:
+                            TextFormField(style: StylePlatform.stylesaleandbuy),
                       ),
                     ),
                   ],
