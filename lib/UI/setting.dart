@@ -1,8 +1,13 @@
-import 'package:alnoormanment/shared/responsive/responsive.dart';
-import 'package:alnoormanment/shared/thems.dart';
-import 'package:alnoormanment/shared/widget/Logo.widget.dart';
-import 'package:alnoormanment/shared/words.dart';
+import 'package:alnoormanment/BL/bloc/authentication/auth_bloc.dart';
+import 'package:alnoormanment/BL/bloc/authentication/auth_event.dart';
+import 'package:alnoormanment/UI/currency/currency.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/src/provider.dart';
+
+import 'shared/responsive/responsive.dart';
+import 'shared/thems.dart';
+import 'shared/widget/Logo.widget.dart';
+import 'shared/words.dart';
 
 class Setting extends StatefulWidget {
   Setting({Key? key}) : super(key: key);
@@ -33,29 +38,43 @@ class _SettingState extends State<Setting> {
                     flex: 18,
                     child: ListView(children: [
                       Logo_widget(),
+                      // Container(
+                      //   margin: EdgeInsets.all(10),
+                      //   height: 60,
+                      //   decoration: DecoPlatform.decofirstwide,
+                      //   alignment: Alignment.center,
+                      //   child: ListTile(
+                      //     title: Text(StringPlatform.currencymanag),
+                      //     leading: Icon(Icons.monetization_on),
+                      //     onTap: () {
+                      //       Navigator.of(context)
+                      //           .pushNamed(CurrencyScreen.routeName);
+                      //     },
+                      //   ),
+                      // ),
+                      // Container(
+                      //   margin: EdgeInsets.all(10),
+                      //   height: 60,
+                      //   decoration: DecoPlatform.decofirstwide,
+                      //   alignment: Alignment.center,
+                      //   child: ListTile(
+                      //     title: Text(StringPlatform.calculator),
+                      //     leading: Icon(Icons.calculate),
+                      //     onTap: () {
+                      //       Navigator.of(context).pushNamed("/Calculator");
+                      //     },
+                      //   ),
+                      // ),
                       Container(
                         margin: EdgeInsets.all(10),
                         height: 60,
                         decoration: DecoPlatform.decofirstwide,
                         alignment: Alignment.center,
                         child: ListTile(
-                          title: Text(StringPlatform.currencymanag),
-                          leading: Icon(Icons.monetization_on),
+                          title:const Text(StringPlatform.advertismanage),
+                          leading:const Icon(Icons.monitor),
                           onTap: () {
-                            Navigator.of(context).pushNamed("Currency");
-                          },
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(10),
-                        height: 60,
-                        decoration:DecoPlatform.decofirstwide,
-                        alignment: Alignment.center,
-                        child: ListTile(
-                          title: Text(StringPlatform.calculator),
-                          leading: Icon(Icons.calculate),
-                          onTap: () {
-                            Navigator.of(context).pushNamed("Calculator");
+                            Navigator.of(context).pushNamed("/Advmanager");
                           },
                         ),
                       ),
@@ -65,23 +84,10 @@ class _SettingState extends State<Setting> {
                         decoration: DecoPlatform.decofirstwide,
                         alignment: Alignment.center,
                         child: ListTile(
-                          title: Text(StringPlatform.advertismanage),
-                          leading: Icon(Icons.monitor),
+                          title:const Text(StringPlatform.we),
+                          leading:const Icon(Icons.business),
                           onTap: () {
-                            Navigator.of(context).pushNamed("Advmanager");
-                          },
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.all(10),
-                        height: 60,
-                        decoration: DecoPlatform.decofirstwide,
-                        alignment: Alignment.center,
-                        child: ListTile(
-                          title: Text(StringPlatform.we),
-                          leading: Icon(Icons.business),
-                          onTap: () {
-                            Navigator.of(context).pushNamed("We");
+                            Navigator.of(context).pushNamed("/We");
                           },
                         ),
                       ),
@@ -94,12 +100,12 @@ class _SettingState extends State<Setting> {
                           title: Text(StringPlatform.users),
                           leading: Icon(Icons.manage_accounts_sharp),
                           onTap: () {
-                            Navigator.of(context).pushNamed("Usersmanager");
+                            Navigator.of(context).pushNamed("/Usersmanager");
                           },
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.all(10),
+                        margin:const EdgeInsets.all(10),
                         height: 60,
                         decoration: DecoPlatform.decofirstwide,
                         alignment: Alignment.center,
@@ -107,7 +113,10 @@ class _SettingState extends State<Setting> {
                           title: Text(StringPlatform.logout),
                           leading: Icon(Icons.logout_outlined),
                           onTap: () {
-                            Navigator.of(context).pushNamed("signup");
+                            context
+                                .read<AuthenticationBloc>()
+                                .add(LogoutEvent());
+                             Navigator.of(context).pushNamed("/login");
                           },
                         ),
                       )

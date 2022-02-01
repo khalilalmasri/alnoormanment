@@ -1,4 +1,4 @@
-package com.example.alnoormanment;
+package com.alnoorexchange.alnoormanment;
 
 import io.flutter.embedding.android.FlutterActivity;
 

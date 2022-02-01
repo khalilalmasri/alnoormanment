@@ -1,10 +1,17 @@
-import 'package:alnoormanment/shared/responsive/responsive.dart';
-import 'package:alnoormanment/shared/thems.dart';
-import 'package:alnoormanment/shared/widget/Button.widget.dart';
-import 'package:alnoormanment/shared/widget/Logo.widget.dart';
-import 'package:alnoormanment/shared/widget/TextFormField_widget.dart';
-import 'package:alnoormanment/shared/words.dart';
+import 'package:alnoormanment/BL/bloc/about/about_bloc.dart';
+import 'package:alnoormanment/BL/bloc/about/about_event.dart';
+import 'package:alnoormanment/BL/bloc/about/about_state.dart';
+import 'package:alnoormanment/DAL/web_services/api_constant.dart';
+import 'package:alnoormanment/DAL/web_services/api_price_currency_constant.dart';
+import 'package:alnoormanment/UI/shared/widget/about/about_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:provider/src/provider.dart';
+import 'shared/thems.dart';
+import 'shared/widget/error/error.dart';
+import 'shared/widget/progress/progress.dart';
+import 'shared/words.dart';
 
 class We extends StatefulWidget {
   We({Key? key}) : super(key: key);
@@ -16,8 +23,37 @@ class We extends StatefulWidget {
 class _WeState extends State<We> {
   bool usr = true;
   var responsibility;
+
+  @override
+  void initState() {
+    context.read<AboutBloc>().add(LoadAboutData());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    return BlocBuilder<AboutBloc, AboutState>(builder: (context, state) {
+      if (state is AboutUsHasData) {
+        if (state.hasUpdateAbout) {
+          EasyLoading.showSuccess("تم التعديل بنجاح");
+          state.hasUpdateAbout = false;
+        }
+        return _getPageContent();
+      } else if (state is AboutUsLoading) {
+        return Center(child: LoadingIndicator());
+      } else if (state is AboutUsError) {
+        return CustomErrorWidget(message: state.errorMessage);
+      } else if (state is AboutUsNoData) {
+        return CustomErrorWidget(message: state.message);
+      } else if (state is AboutUsNoInternetConnection) {
+        return _getPageContent();
+      } else {
+        return Center(child: Text("Something get Wrong "));
+      }
+    });
+  }
+
+  Widget _getPageContent() {
     return Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
@@ -25,78 +61,18 @@ class _WeState extends State<We> {
             backgroundColor: ColorPlatform.firstcolor,
             title: const Text(StringPlatform.we),
           ),
-          body: Container(
-            width: double.infinity,
-            decoration: BoxDecoration(color: ColorPlatform.firstcolor),
-            child: Row(
-                children: [
-                  Expanded(
-                      flex: Responsive.isMobile(context) ? 0 : 6,
-                      child: Container()),
-                  Expanded(
-                    flex: 18,
-            child: ListView(children: [
-              Logo_widget(),
-              Container(
-                margin: EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text_Form_Field(Field_Name: StringPlatform.FirstNumber, obscure_Text: false, Input_type:TextInputType.phone)
-                    ),
-                    /*Container(
-                      width: 120,
-                      alignment: Alignment.center,
-                      decoration: DecoPlatform.decotapbar,
-                      height: 65,
-                      child: Text(
-                        StringPlatform.name,
-                        style: StylePlatform.tilestyly,
-                      ),
-                    ),*/
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text_Form_Field(Field_Name: StringPlatform.SecondNumber, obscure_Text: false, Input_type:TextInputType.phone)
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text_Form_Field(Field_Name: StringPlatform.web, obscure_Text:false, Input_type:TextInputType.text)
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text_Form_Field(Field_Name: StringPlatform.FaceBook, obscure_Text: false, Input_type: TextInputType.text)
-                    ),
-                  ],
-                ),
-              ),
-              Button_widget(Button_Name: StringPlatform.add, Push_named: "")
-            ]),
- ),
-                  Expanded(
-                      flex: Responsive.isMobile(context) ? 0 : 6,
-                      child: Container()),
-                ],
-              ),
+          body: AboutWidget(
+            assistant_phone:
+                ApiPriceCurrencyConstant.aboutUs!.value.phoneAssistant,
+            our_message: ApiPriceCurrencyConstant.aboutUs!.value.ourMessage,
+            company_name: ApiPriceCurrencyConstant.aboutUs!.value.name,
+            our_vision: ApiPriceCurrencyConstant.aboutUs!.value.ourVision,
+            note: ApiPriceCurrencyConstant.aboutUs!.value.desc,
+            website: ApiPriceCurrencyConstant.aboutUs!.value.website,
+            manager_phone: ApiPriceCurrencyConstant.aboutUs!.value.phoneManager,
+            facebook: ApiPriceCurrencyConstant.aboutUs!.value.facebook,
+            address: ApiPriceCurrencyConstant.aboutUs!.value.insta,
           ),
-          
         ));
   }
 }

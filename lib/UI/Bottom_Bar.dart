@@ -1,24 +1,24 @@
-import 'package:alnoormanment/UI/Calculater.dart';
-import 'package:alnoormanment/UI/currency.dart';
+import 'package:alnoormanment/UI/currency/Calculater.dart';
+import 'package:alnoormanment/UI/currency/currency.dart';
+
 import 'package:alnoormanment/UI/setting.dart';
-import 'package:alnoormanment/shared/responsive/responsive.dart';
-import 'package:alnoormanment/shared/thems.dart';
-import 'package:alnoormanment/shared/widget/Button.widget.dart';
-import 'package:alnoormanment/shared/widget/price_currency_widget.dart';
-import 'package:alnoormanment/shared/words.dart';
 import 'package:flutter/material.dart';
 
-class Bottom_Bar extends StatefulWidget {
-  Bottom_Bar({Key? key}) : super(key: key);
+import 'shared/thems.dart';
+import 'shared/words.dart';
+
+class HomeScreen extends StatefulWidget {
+  static const String routeName = '/home';
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
-  _Bottom_BarState createState() => _Bottom_BarState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _Bottom_BarState extends State<Bottom_Bar> {
+class _HomeScreenState extends State<HomeScreen> {
   int selectindex = 0;
   List<Widget> widgetpages = [
-    Currency(),
+    CurrencyScreen(),
     Setting(),
     Calculater(),
   ];
